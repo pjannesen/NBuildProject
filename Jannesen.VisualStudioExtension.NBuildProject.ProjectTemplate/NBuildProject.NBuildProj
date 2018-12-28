@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+	<PropertyGroup>
+		<NBuildProjectBuild Condition="'$(NBuildProjectBuild)'==''">$(MSBuildExtensionsPath)\Jannesen.NBuildProject\</NBuildProjectBuild>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'" Label="Configuration">
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'" Label="Configuration">
+	</PropertyGroup>
+
+	<Import Project="$(NBuildProjectBuild)NBuildProject.props" />
+
+	<ItemGroup>
+	</ItemGroup>
+
+	<Import Project="$(NBuildProjectBuild)NBuildProject.targets" />
+
+	<Target Name="Cleanup" DependsOnTargets="JLClean" />
+	<Target Name="Build"   DependsOnTargets="JLBuild" />
+	<Target Name="Rebuild" DependsOnTargets="JLSetRebuild">
+		<CallTarget Targets="Cleanup" />
+		<CallTarget Targets="Build" />
+	</Target>	
+</Project>

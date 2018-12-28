@@ -1,0 +1,20 @@
+﻿<VSTemplateManifest Version="1.0" Locale="1033" xmlns="http://schemas.microsoft.com/developer/vstemplatemanifest/2015">
+  <VSTemplateContainer TemplateType="Project">
+    <RelativePathOnDisk>NBuildProject\1033\NBuildProject</RelativePathOnDisk>
+    <TemplateFileName>NBuildProject.vstemplate</TemplateFileName>
+    <VSTemplateHeader>
+      <TemplateData xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+        <Name>NBuild (Custom Build) project</Name>
+        <Description>A project for using a external build system. For example build systems using nodejs to build a web project.</Description>
+        <Icon Package="{24077884-E16E-4CC2-937F-7CA74CCE53AE}" ID="400" />
+        <TemplateID>Jannesen.VisualStudioExtension.NBuildProject.EmptyProject</TemplateID>
+        <ProjectType>NBuildProject</ProjectType>
+        <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+        <CreateNewFolder>true</CreateNewFolder>
+        <DefaultName>New Project</DefaultName>
+        <ProvideDefaultName>true</ProvideDefaultName>
+        <PromptForSaveOnCreation>true</PromptForSaveOnCreation>
+      </TemplateData>
+    </VSTemplateHeader>
+  </VSTemplateContainer>
+</VSTemplateManifest>

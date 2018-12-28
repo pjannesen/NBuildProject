@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
+	<TemplateData>
+		<Name>Javascript file</Name>
+		<Description>Javascript file</Description>
+		<Icon Package="{FAE04EC1-301F-11d3-BF4B-00C04F79EFBC}" ID="4557" />
+		<TemplateID>Jannesen.VisualStudioExtension.NBuildProject.javascript.js</TemplateID>
+		<ProjectType>NBuildProject</ProjectType>
+		<DefaultName>newfile.js</DefaultName>
+	</TemplateData>
+	<TemplateContent>
+		<ProjectItem ReplaceParameters="true">javascript.js</ProjectItem>
+	</TemplateContent>
+</VSTemplate>

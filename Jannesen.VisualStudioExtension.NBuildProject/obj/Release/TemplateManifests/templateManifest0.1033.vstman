@@ -1,0 +1,159 @@
+﻿<VSTemplateManifest Version="1.0" Locale="1033" xmlns="http://schemas.microsoft.com/developer/vstemplatemanifest/2015">
+  <VSTemplateContainer TemplateType="Item">
+    <RelativePathOnDisk>NBuildProject\1033\html-page</RelativePathOnDisk>
+    <TemplateFileName>html-page.vstemplate</TemplateFileName>
+    <VSTemplateHeader>
+      <TemplateData xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+        <Name>HTML file</Name>
+        <Description>HTML file</Description>
+        <Icon Package="{FAE04EC1-301F-11d3-BF4B-00C04F79EFBC}" ID="4528" />
+        <TemplateID>Jannesen.VisualStudioExtension.NBuildProject.html-page</TemplateID>
+        <ProjectType>NBuildProject</ProjectType>
+        <DefaultName>newfile.html</DefaultName>
+      </TemplateData>
+    </VSTemplateHeader>
+  </VSTemplateContainer>
+  <VSTemplateContainer TemplateType="Item">
+    <RelativePathOnDisk>NBuildProject\1033\javascript</RelativePathOnDisk>
+    <TemplateFileName>javascript.vstemplate</TemplateFileName>
+    <VSTemplateHeader>
+      <TemplateData xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+        <Name>Javascript file</Name>
+        <Description>Javascript file</Description>
+        <Icon Package="{FAE04EC1-301F-11d3-BF4B-00C04F79EFBC}" ID="4557" />
+        <TemplateID>Jannesen.VisualStudioExtension.NBuildProject.javascript.js</TemplateID>
+        <ProjectType>NBuildProject</ProjectType>
+        <DefaultName>newfile.js</DefaultName>
+      </TemplateData>
+    </VSTemplateHeader>
+  </VSTemplateContainer>
+  <VSTemplateContainer TemplateType="Item">
+    <RelativePathOnDisk>NBuildProject\1033\json</RelativePathOnDisk>
+    <TemplateFileName>json.vstemplate</TemplateFileName>
+    <VSTemplateHeader>
+      <TemplateData xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+        <Name>JSON file</Name>
+        <Description>JSON file</Description>
+        <Icon Package="{AAB75614-2F8F-4DA6-B0A6-763C6DBB2969}" ID="2200" />
+        <TemplateID>Jannesen.VisualStudioExtension.NBuildProject.json</TemplateID>
+        <ProjectType>NBuildProject</ProjectType>
+        <DefaultName>newfile.json</DefaultName>
+      </TemplateData>
+    </VSTemplateHeader>
+  </VSTemplateContainer>
+  <VSTemplateContainer TemplateType="Item">
+    <RelativePathOnDisk>NBuildProject\1033\stylesheet-css</RelativePathOnDisk>
+    <TemplateFileName>stylesheet-css.vstemplate</TemplateFileName>
+    <VSTemplateHeader>
+      <TemplateData xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+        <Name>CSS StyleSheet file</Name>
+        <Description>CSS StyleSheet file</Description>
+        <Icon Package="{FAE04EC1-301F-11d3-BF4B-00C04F79EFBC}" ID="4544" />
+        <TemplateID>Jannesen.VisualStudioExtension.NBuildProject.stylesheet-css.css</TemplateID>
+        <ProjectType>NBuildProject</ProjectType>
+        <DefaultName>newfile.css</DefaultName>
+      </TemplateData>
+    </VSTemplateHeader>
+  </VSTemplateContainer>
+  <VSTemplateContainer TemplateType="Item">
+    <RelativePathOnDisk>NBuildProject\1033\stylesheet-scss</RelativePathOnDisk>
+    <TemplateFileName>stylesheet-scss.vstemplate</TemplateFileName>
+    <VSTemplateHeader>
+      <TemplateData xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+        <Name>SCSS StyleSheet file</Name>
+        <Description>SCSS StyleSheet file</Description>
+        <Icon Package="{AAB75614-2F8F-4DA6-B0A6-763C6DBB2969}" ID="2101" />
+        <TemplateID>Jannesen.VisualStudioExtension.NBuildProject.styleSheet-scss.scss</TemplateID>
+        <ProjectType>NBuildProject</ProjectType>
+        <DefaultName>newfile.scss</DefaultName>
+      </TemplateData>
+    </VSTemplateHeader>
+  </VSTemplateContainer>
+  <VSTemplateContainer TemplateType="Item">
+    <RelativePathOnDisk>NBuildProject\1033\textfile</RelativePathOnDisk>
+    <TemplateFileName>textfile.vstemplate</TemplateFileName>
+    <VSTemplateHeader>
+      <TemplateData xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+        <Name>Text file</Name>
+        <Description>Text file</Description>
+        <Icon Package="{2FFE45C4-5C73-493C-B187-F2E955FF875E}" ID="3">
+        </Icon>
+        <TemplateID>Jannesen.VisualStudioExtension.NBuildProject.textfile</TemplateID>
+        <ProjectType>NBuildProject</ProjectType>
+        <DefaultName>newfile.txt</DefaultName>
+      </TemplateData>
+    </VSTemplateHeader>
+  </VSTemplateContainer>
+  <VSTemplateContainer TemplateType="Item">
+    <RelativePathOnDisk>NBuildProject\1033\tsconfig</RelativePathOnDisk>
+    <TemplateFileName>tsconfig.vstemplate</TemplateFileName>
+    <VSTemplateHeader>
+      <TemplateData xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+        <Name>TSConfig file</Name>
+        <Description>Typescript configuration.</Description>
+        <Icon Package="{AAB75614-2F8F-4DA6-B0A6-763C6DBB2969}" ID="2200" />
+        <TemplateID>Jannesen.VisualStudioExtension.NBuildProject.tsconfig</TemplateID>
+        <ProjectType>NBuildProject</ProjectType>
+        <DefaultName>tsconfig.json</DefaultName>
+      </TemplateData>
+    </VSTemplateHeader>
+  </VSTemplateContainer>
+  <VSTemplateContainer TemplateType="Item">
+    <RelativePathOnDisk>NBuildProject\1033\typescript</RelativePathOnDisk>
+    <TemplateFileName>typescript.vstemplate</TemplateFileName>
+    <VSTemplateHeader>
+      <TemplateData xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+        <Name>Typescript file</Name>
+        <Description>Typescript file</Description>
+        <Icon Package="{2FFE45C4-5C73-493C-B187-F2E955FF875E}" ID="3">
+        </Icon>
+        <TemplateID>Jannesen.VisualStudioExtension.NBuildProject.typescript</TemplateID>
+        <ProjectType>NBuildProject</ProjectType>
+        <DefaultName>newfile.ts</DefaultName>
+      </TemplateData>
+    </VSTemplateHeader>
+  </VSTemplateContainer>
+  <VSTemplateContainer TemplateType="Item">
+    <RelativePathOnDisk>NBuildProject\1033\typescriptx</RelativePathOnDisk>
+    <TemplateFileName>typescriptx.vstemplate</TemplateFileName>
+    <VSTemplateHeader>
+      <TemplateData xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+        <Name>TypescriptX file</Name>
+        <Description>TypescriptX file</Description>
+        <Icon Package="{2FFE45C4-5C73-493C-B187-F2E955FF875E}" ID="3">
+        </Icon>
+        <TemplateID>Jannesen.VisualStudioExtension.NBuildProject.typescriptx</TemplateID>
+        <ProjectType>NBuildProject</ProjectType>
+        <DefaultName>newfile.tsx</DefaultName>
+      </TemplateData>
+    </VSTemplateHeader>
+  </VSTemplateContainer>
+  <VSTemplateContainer TemplateType="Item">
+    <RelativePathOnDisk>NBuildProject\1033\web-config</RelativePathOnDisk>
+    <TemplateFileName>web-config.vstemplate</TemplateFileName>
+    <VSTemplateHeader>
+      <TemplateData xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+        <Name>Web.config file</Name>
+        <Description>IIS Web config file</Description>
+        <Icon Package="{39C9C826-8EF8-4079-8C95-428F5B1C323F}" ID="4540" />
+        <TemplateID>Jannesen.VisualStudioExtension.NBuildProject.web-config</TemplateID>
+        <ProjectType>NBuildProject</ProjectType>
+        <DefaultName>Web.config</DefaultName>
+      </TemplateData>
+    </VSTemplateHeader>
+  </VSTemplateContainer>
+  <VSTemplateContainer TemplateType="Item">
+    <RelativePathOnDisk>NBuildProject\1033\xml-file</RelativePathOnDisk>
+    <TemplateFileName>xml-file.vstemplate</TemplateFileName>
+    <VSTemplateHeader>
+      <TemplateData xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+        <Name>XML file</Name>
+        <Description>XML file</Description>
+        <Icon Package="{FAE04EC1-301F-11d3-BF4B-00C04F79EFBC}" ID="4524" />
+        <TemplateID>Jannesen.VisualStudioExtension.NBuildProject.xml-file.xml</TemplateID>
+        <ProjectType>NBuildProject</ProjectType>
+        <DefaultName>newfile.xml</DefaultName>
+      </TemplateData>
+    </VSTemplateHeader>
+  </VSTemplateContainer>
+</VSTemplateManifest>

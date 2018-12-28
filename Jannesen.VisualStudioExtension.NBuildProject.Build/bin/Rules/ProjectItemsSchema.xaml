@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectSchemaDefinitions xmlns="http://schemas.microsoft.com/build/2009/properties">
+    <ItemType Name="None"               DisplayName="Does not participate in build"                 />
+    <ItemType Name="Folder"             DisplayName="Folder"                                        />
+    <ItemType Name="File"               DisplayName="File"                                          />
+
+    <ContentType Name="SCRIPT"          DisplayName="Script file"               ItemType="File"     />
+    <ContentType Name="TEXT"            DisplayName="Text file"                 ItemType="File"     />
+    <ContentType Name="TYPESCRIPT"      DisplayName="TypeScript file"           ItemType="File"     />
+    <ContentType Name="CMD"             DisplayName="Cmd batch file"            ItemType="File"     />
+    <ContentType Name="CONFIG"          DisplayName="Config file"               ItemType="File"     />
+    <ContentType Name="CSS"             DisplayName="Cascading style sheet"     ItemType="File"     />
+    <ContentType Name="DOCX"            DisplayName="Word file"                 ItemType="File"     />
+    <ContentType Name="EXE"             DisplayName="Exe file"                  ItemType="File"     />
+    <ContentType Name="FONTFILE"        DisplayName="Font file"                 ItemType="File"     />
+    <ContentType Name="HTML"            DisplayName="Html file"                 ItemType="File"     />
+    <ContentType Name="ICON"            DisplayName="Icon file"                 ItemType="File"     />
+    <ContentType Name="IMAGEFILE"       DisplayName="Image file"                ItemType="File"     />
+    <ContentType Name="JSON"            DisplayName="Json file"                 ItemType="File"     />
+    <ContentType Name="MAPFILE"         DisplayName="Map file"                  ItemType="File"     />
+    <ContentType Name="MARKDOWN"        DisplayName="Markdown file"             ItemType="File"     />
+    <ContentType Name="PDF"             DisplayName="PDF file"                  ItemType="File"     />
+    <ContentType Name="RAR"             DisplayName="RAR file"                  ItemType="File"     />
+    <ContentType Name="XLSX"            DisplayName="Excel file"                ItemType="File"     />
+    <ContentType Name="XML"             DisplayName="Xml file"                  ItemType="File"     />
+
+    <FileExtension Name=".bmp"          ContentType="IMAGEFILE"     />
+    <FileExtension Name=".cmd"          ContentType="CMD"           />
+    <FileExtension Name=".config"       ContentType="CONFIG"        />
+    <FileExtension Name=".css"          ContentType="CSS"           />
+    <FileExtension Name=".docx"         ContentType="DOCX"          />
+    <FileExtension Name=".eot"          ContentType="FONTFILE"      />
+    <FileExtension Name=".exe"          ContentType="EXE"           />
+    <FileExtension Name=".gif"          ContentType="IMAGEFILE"     />
+    <FileExtension Name=".htm"          ContentType="HTML"          />
+    <FileExtension Name=".html"         ContentType="HTML"          />
+    <FileExtension Name=".ico"          ContentType="ICON"          />
+    <FileExtension Name=".js"           ContentType="SCRIPT"        />
+    <FileExtension Name=".json"         ContentType="JSON"          />
+    <FileExtension Name=".less"         ContentType="CSS"           />
+    <FileExtension Name=".map"          ContentType="MAPFILE"       />
+    <FileExtension Name=".md"           ContentType="MARKDOWN"      />
+    <FileExtension Name=".otf"          ContentType="FONTFILE"      />
+    <FileExtension Name=".pdf"          ContentType="PDF"           />
+    <FileExtension Name=".png"          ContentType="IMAGEFILE"     />
+    <FileExtension Name=".rar"          ContentType="RAR"           />
+    <FileExtension Name=".scss"         ContentType="CSS"           />
+    <FileExtension Name=".svg"          ContentType="FONTFILE"      />
+    <FileExtension Name=".ts"           ContentType="TYPESCRIPT"    />
+    <FileExtension Name=".tsx"          ContentType="TYPESCRIPT"    />
+    <FileExtension Name=".ttf"          ContentType="FONTFILE"      />
+    <FileExtension Name=".txt"          ContentType="TEXT"          />
+    <FileExtension Name=".woff"         ContentType="FONTFILE"      />
+    <FileExtension Name=".woff2"        ContentType="FONTFILE"      />
+    <FileExtension Name=".xlsx"         ContentType="XLSX"          />
+    <FileExtension Name=".xml"          ContentType="XML"           />
+</ProjectSchemaDefinitions>

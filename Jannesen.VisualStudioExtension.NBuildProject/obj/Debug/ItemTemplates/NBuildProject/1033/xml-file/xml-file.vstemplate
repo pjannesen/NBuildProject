@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+	<TemplateData>
+		<Name>XML file</Name>
+		<Description>XML file</Description>
+		<Icon Package="{FAE04EC1-301F-11d3-BF4B-00C04F79EFBC}" ID="4524" />
+		<TemplateID>Jannesen.VisualStudioExtension.NBuildProject.xml-file.xml</TemplateID>
+		<ProjectType>NBuildProject</ProjectType>
+		<DefaultName>newfile.xml</DefaultName>
+	</TemplateData>
+	<TemplateContent>
+		<ProjectItem ReplaceParameters="true">xml-file.xml</ProjectItem>
+	</TemplateContent>
+</VSTemplate>

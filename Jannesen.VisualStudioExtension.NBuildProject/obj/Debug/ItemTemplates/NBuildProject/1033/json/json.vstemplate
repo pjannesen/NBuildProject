@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+	<TemplateData>
+		<Name>JSON file</Name>
+		<Description>JSON file</Description>
+		<Icon Package="{AAB75614-2F8F-4DA6-B0A6-763C6DBB2969}" ID="2200"/>
+		<TemplateID>Jannesen.VisualStudioExtension.NBuildProject.json</TemplateID>
+		<ProjectType>NBuildProject</ProjectType>
+		<DefaultName>newfile.json</DefaultName>
+	</TemplateData>
+	<TemplateContent>
+		<ProjectItem ReplaceParameters="true">json.json</ProjectItem>
+	</TemplateContent>
+</VSTemplate>

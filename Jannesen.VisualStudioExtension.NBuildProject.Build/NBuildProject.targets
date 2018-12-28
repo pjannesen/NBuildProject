@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<Import Project="$(MSBuildProjectFullPath).user" Condition="Exists('$(MSBuildProjectFullPath).user')"/>
+
+	<ItemGroup>
+		<ProjectCapability Include="ProjectConfigurationsInferredFromUsage" />
+		<ProjectCapability Include="DeclaredSourceItems" />
+		<ProjectCapability Include="UseFileGlobs" />
+		<ProjectCapability Include="DependenciesTree;ProjectReferences;ReferenceManagerProjects" />
+		<ProjectCapability Include="NBuildProject" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PropertyPageSchema Include="$(MSBuildThisFileDirectory)Rules\ProjectItemsSchema.xaml"/>
+
+		<!-- Project -->
+		<PropertyPageSchema Include="$(MSBuildThisFileDirectory)Rules\General.xaml;$(MSBuildThisFileDirectory)Rules\User.xaml">
+			<Context>Project</Context>
+		</PropertyPageSchema>
+
+		<PropertyPageSchema Include="$(MSBuildThisFileDirectory)Rules\GeneralBrowseobject.xaml">
+			<Context>BrowseObject</Context>
+		</PropertyPageSchema>
+
+		<!-- SCC -->
+		<PropertyPageSchema Include="$(MSBuildThisFileDirectory)Rules\Scc.xaml">
+			<Context>Invisible</Context>
+		</PropertyPageSchema>
+	</ItemGroup>
+
+	<ItemGroup>
+		<!-- folder & Item-None  -->
+		<PropertyPageSchema Include="$(MSBuildThisFileDirectory)Rules\Folder.xaml;$(MSBuildThisFileDirectory)Rules\None.xaml; ">
+			<Context>File;BrowseObject</Context>
+		</PropertyPageSchema>
+
+		<!-- item general -->
+		<PropertyPageSchema Include="$(MSBuildThisFileDirectory)Rules\GeneralFile.xaml">
+			<Context>File</Context>
+		</PropertyPageSchema>
+
+		<!-- Item-File -->
+		<PropertyPageSchema Include="$(MSBuildThisFileDirectory)Rules\File.xaml;">
+			<Context>File</Context>
+		</PropertyPageSchema>
+		<PropertyPageSchema Include="$(MSBuildThisFileDirectory)Rules\FileBrowseobject.xaml;">
+			<Context>BrowseObject</Context>
+		</PropertyPageSchema>		
+	</ItemGroup>
+
+	<ItemGroup>
+		<PropertyPageSchema Include="$(MSBuildThisFileDirectory)Rules\ProjectReference.xaml">
+			<Context>Project;BrowseObject</Context>
+		</PropertyPageSchema>
+		<PropertyPageSchema Include="$(MSBuildThisFileDirectory)Rules\ResolvedProjectReference.xaml">
+			<Context>ProjectSubscriptionService;BrowseObject</Context>
+		</PropertyPageSchema>
+	</ItemGroup>
+
+	<PropertyGroup>
+		<BaseIntermediateOutputPath Condition="'$(BaseIntermediateOutputPath)'=='' ">$(MSBuildProjectDirectory)\obj</BaseIntermediateOutputPath>
+		<JLRebuildSet></JLRebuildSet>
+	</PropertyGroup>
+
+	<UsingTask TaskName="ResolveProjectReferences" AssemblyFile="$(MSBuildThisFileDirectory)Jannesen.VisualStudioExtension.NBuildProject.Build.dll" />
+	<UsingTask TaskName="CleanTargetTree"          AssemblyFile="$(MSBuildThisFileDirectory)Jannesen.VisualStudioExtension.NBuildProject.Build.dll" />
+	<UsingTask TaskName="ProcessBuild"             AssemblyFile="$(MSBuildThisFileDirectory)Jannesen.VisualStudioExtension.NBuildProject.Build.dll" />
+
+	<Target Name="BuildJSBuild" Condition="Exists('$(MSBuildProjectDirectory)\buildjsfile.js')">
+		<ItemGroup>
+			<BuildJSDirectory Include="$(BuildJSDirectory)" />
+		</ItemGroup>
+		<Error Condition="'$(BuildJSDirectory)' == ''"
+			   Text="BuildJSDirectory not defined in project." />
+		<Error Condition="!Exists('$(BuildJSDirectory)\processbuild.config')"
+			   Text="Invalid BuildJSDirectory configured in project." />
+		<ProcessBuild ProjectDirectory="$(MSBuildProjectDirectory)"
+				      ProcessBuildConfig="$(BuildJSDirectory)\processbuild.config"
+				      Args="buildjsfile.js /Configuration=$(Configuration)"
+		/>
+	</Target>
+
+	<Target Name="ResolveProjectReferencesDesignTime" DependsOnTargets="ResolveProjectReferences" Returns="@(_ResolvedProjectReferences)" />
+	<Target Name="ResolveProjectReferences" Returns="@(_ResolvedProjectReferences)">
+			<ResolveProjectReferences ProjectReferences="@(ProjectReference)"
+								  ProjectDirectory="$(MSBuildProjectDirectory)"
+								  ProjectConfiguration="$(Configuration)"
+								  ProjectPlatform="$(Platform)"
+								  Build="false">
+			<Output TaskParameter="ResolvedProjectReferences" ItemName="_ResolvedProjectReferences"/>
+		</ResolveProjectReferences>
+	</Target>
+</Project>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+	<TemplateData>
+		<Name>Web.config file</Name>
+		<Description>IIS Web config file</Description>
+		<Icon Package="{39C9C826-8EF8-4079-8C95-428F5B1C323F}" ID="4540"/>
+		<TemplateID>Jannesen.VisualStudioExtension.NBuildProject.web-config</TemplateID>
+		<ProjectType>NBuildProject</ProjectType>
+		<DefaultName>Web.config</DefaultName>
+	</TemplateData>
+	<TemplateContent>
+		<ProjectItem ReplaceParameters="true">web-config.config</ProjectItem>
+	</TemplateContent>
+</VSTemplate>
