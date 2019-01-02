@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -21,8 +21,7 @@ namespace Jannesen.VisualStudioExtension.NBuildProject.Build.Library
                 throw new ArgumentException("Invallid full path '" + path + "'.");
 
             for (int i = 0 ; i < parts.Count ; ) {
-                switch(parts[i])
-                {
+                switch(parts[i]) {
                 case ".":
                     parts.RemoveAt(i);
                     break;

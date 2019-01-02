@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.Concurrent;
 using System.Diagnostics;
@@ -103,8 +103,7 @@ namespace Jannesen.VisualStudioExtension.NBuildProject.Build
 
                 if (reader.hasChildren) {
                     while (reader.ReadNextElement()) {
-                        switch(reader.ElementName)
-                        {
+                        switch(reader.ElementName) {
                         case "process":
                             foreach(string name in reader.GetAttibutes()) {
                                 string value = _expandValue(reader.GetValueString(name));
@@ -113,8 +112,7 @@ namespace Jannesen.VisualStudioExtension.NBuildProject.Build
                                     _startInfo.EnvironmentVariables[name.Substring(4)] = value;
                                 }
                                 else {
-                                    switch(name)
-                                    {
+                                    switch(name) {
                                     case "filename":            _startInfo.FileName         = value;    break;
                                     case "workingdirectory":    _startInfo.WorkingDirectory = value;    break;
                                     case "arguments":           _startInfo.Arguments        = value;    break;
@@ -219,8 +217,7 @@ namespace Jannesen.VisualStudioExtension.NBuildProject.Build
         }
         private                 string                              _variableLookup(string name)
         {
-            switch(name)
-            {
+            switch(name) {
             case "base":
                 return _base;
 

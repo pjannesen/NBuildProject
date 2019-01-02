@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Xml;
@@ -57,8 +57,7 @@ namespace Jannesen.VisualStudioExtension.NBuildProject.Build.Library
                 if (!_xmlReader.Read())
                     throw new ConfigException("Invalid XML: reading EOF.");
 
-                switch(_xmlReader.NodeType)
-                {
+                switch(_xmlReader.NodeType) {
                 case XmlNodeType.Element:
                     return true;
 
@@ -115,8 +114,7 @@ namespace Jannesen.VisualStudioExtension.NBuildProject.Build.Library
             if (value == null)
                 return defaultValue;
 
-            switch(value)
-            {
+            switch(value) {
             case "0":
             case "n":
                 return false;
