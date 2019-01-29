@@ -1,5 +1,0 @@
-C:\Local\Trunk\TAS\contrib\jannesen\NBuildProject\Jannesen.VisualStudioExtension.NBuildProject.ProjectTemplate\bin\ProjectTemplates\NBuildProject\1033\NBuildProject.zip
-C:\Local\Trunk\TAS\contrib\jannesen\NBuildProject\Jannesen.VisualStudioExtension.NBuildProject.ProjectTemplate\obj\Release\Jannesen.VisualStudioExtension.NBuildProject.ProjectTemplate.csproj.CoreCompileInputs.cache
-C:\Local\Trunk\TAS\contrib\jannesen\NBuildProject\Jannesen.VisualStudioExtension.NBuildProject.ProjectTemplate\obj\Release\NBuildProject\1033\NBuildProject.zip
-C:\Local\Trunk\TAS\contrib\jannesen\NBuildProject\Jannesen.VisualStudioExtension.NBuildProject.ProjectTemplate\obj\Release\Jannesen.VisualStudioExtension.NBuildProject.ProjectTemplate.dll
-C:\Local\Trunk\TAS\contrib\jannesen\NBuildProject\Jannesen.VisualStudioExtension.NBuildProject.ProjectTemplate\obj\Release\Jannesen.VisualStudioExtension.NBuildProject.ProjectTemplate.pdb
