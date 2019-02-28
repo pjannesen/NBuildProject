@@ -30,10 +30,6 @@
     <CreateVsixContainer>True</CreateVsixContainer>
     <CopyVsixExtensionFiles>True</CopyVsixExtensionFiles>
     <CopyVsixExtensionLocation>..\VisualStudioExtensions\.vsix</CopyVsixExtensionLocation>
-    <SccProjectName>Svn</SccProjectName>
-    <SccLocalPath>Svn</SccLocalPath>
-    <SccAuxPath>Svn</SccAuxPath>
-    <SccProvider>SubversionScc</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
