@@ -4,10 +4,9 @@ using System.ComponentModel.Composition;
 using Microsoft.VisualStudio.ProjectSystem;
 using Microsoft.VisualStudio.ProjectSystem.Properties;
 
-namespace Jannesen.VisualStudioExtension.NBuildProject.VSIX.CPS
+namespace Jannesen.VisualStudioExtension.NBuildProject.VSIX
 {
     [Export]
-    [AppliesTo(NBuildProjectUnconfiguredProject.UniqueCapability)]
     internal partial class ProjectProperties : StronglyTypedPropertyAccess
     {
         /// <summary>

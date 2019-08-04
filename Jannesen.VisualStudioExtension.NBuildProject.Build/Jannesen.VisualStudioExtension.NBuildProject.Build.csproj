@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Jannesen.VisualStudioExtension.NBuildProject.Build</RootNamespace>
     <AssemblyName>Jannesen.VisualStudioExtension.NBuildProject.Build</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <WarningLevel>4</WarningLevel>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <FileAlignment>512</FileAlignment>
@@ -33,19 +33,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Build, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <SpecificVersion>True</SpecificVersion>
       <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.Build.Framework, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <SpecificVersion>True</SpecificVersion>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <SpecificVersion>True</SpecificVersion>
       <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.Build.Utilities.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <SpecificVersion>True</SpecificVersion>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -53,16 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Library\ConfigReader.cs" />
+    <Compile Include="Library\Statics.cs" />
+    <Compile Include="Library\BaseTask.cs" />
+    <Compile Include="Library\ConfigException.cs" />
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="CleanTargetTree.cs" />
     <Compile Include="Exception.cs" />
     <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="Library\ConfigReader.cs" />
-    <Compile Include="Library\Statics.cs" />
     <Compile Include="ProcessBuild.cs" />
     <Compile Include="ResolveProjectReferences.cs" />
-    <Compile Include="Library\BaseTask.cs" />
-    <Compile Include="Library\ConfigException.cs" />
     <None Include="NBuildProject.props">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

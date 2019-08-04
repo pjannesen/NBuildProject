@@ -12,15 +12,15 @@ using Microsoft.VisualStudio.ProjectSystem;
 
 namespace Jannesen.VisualStudioExtension.NBuildProject.VSIX
 {
-    [PackageRegistration(UseManagedResourcesOnly = true)]
+    [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
     [InstalledProductRegistration("#110", "#112", VSPackage.Version, IconResourceID = 400)]
     [Guid(VSPackage.PackageGuid)]
     [Description("NBuildProject Visual Studio Extension.")]
-    [ProvideAutoLoad(Microsoft.VisualStudio.Shell.Interop.UIContextGuids80.SolutionExists)]
-    public sealed class VSPackage: Package
+    [ProvideAutoLoad(Microsoft.VisualStudio.Shell.Interop.UIContextGuids80.SolutionExists, PackageAutoLoadFlags.BackgroundLoad)]
+    public sealed class VSPackage: AsyncPackage
     {
         public      const       string                              PackageGuid     = "24077884-E16E-4CC2-937F-7CA74CCE53AE";
-        public      const       string                              Version         = "1.08.00.000";        //@VERSIONINFO
+        public      const       string                              Version         = "1.09.00.000";        //@VERSIONINFO
 
         public                                                      VSPackage()
         {
