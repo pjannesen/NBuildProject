@@ -5,7 +5,7 @@ using System.Xml;
 
 namespace Jannesen.VisualStudioExtension.NBuildProject.Build.Library
 {
-    public sealed class ConfigReader : IDisposable
+    public sealed class ConfigReader: IDisposable
     {
         private     XmlTextReader                   _xmlReader;
 
@@ -33,7 +33,9 @@ namespace Jannesen.VisualStudioExtension.NBuildProject.Build.Library
 
         public                                      ConfigReader(string fileName)
         {
+#pragma warning disable CA3075 // Insecure DTD processing in XML
             _xmlReader  = new XmlTextReader(fileName);
+#pragma warning restore CA3075 // Insecure DTD processing in XML
         }
         public      void                            Dispose()
         {
@@ -132,7 +134,7 @@ namespace Jannesen.VisualStudioExtension.NBuildProject.Build.Library
             string      value = GetValueString(name);
 
             try {
-                return Int64.Parse(value);
+                return Int64.Parse(value, System.Globalization.CultureInfo.InvariantCulture);
             }
             catch(Exception) {
                 throw new ConfigException("Invalid integer value in attribute '" + name + "'.");

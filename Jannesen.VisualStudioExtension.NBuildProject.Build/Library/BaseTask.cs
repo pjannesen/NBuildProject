@@ -61,9 +61,12 @@ namespace Jannesen.VisualStudioExtension.NBuildProject.Build.Library
         }
         protected   static      string                              FullFileName(string root, string filename)
         {
+            if (root == null) throw new ArgumentNullException(nameof(root));
+            if (filename == null) throw new ArgumentNullException(nameof(filename));
+
             filename = Path.Combine(root, filename.Replace("/", "\\"));
 
-            if (filename.IndexOf("\\.") < 0)
+            if (filename.IndexOf("\\.", StringComparison.InvariantCulture) < 0)
                 return filename;
 
             int         rootindex = _getRootIndex(filename);
@@ -95,7 +98,7 @@ namespace Jannesen.VisualStudioExtension.NBuildProject.Build.Library
 
             StringBuilder       rtn = new StringBuilder();
 
-            rtn.Append(filename.Substring(0, rootindex).ToUpper());
+            rtn.Append(filename.Substring(0, rootindex).ToUpper(System.Globalization.CultureInfo.InvariantCulture));
 
             for (int i = 0 ; i < rpos ; ++i) {
                 if (i > 0)
@@ -143,7 +146,7 @@ namespace Jannesen.VisualStudioExtension.NBuildProject.Build.Library
             if (filename.Length > 2 && filename[1] == ':'  && filename[2] == '\\')
                 return 3;
 
-            if (filename.StartsWith("\\")) {
+            if (filename.StartsWith("\\", StringComparison.InvariantCulture)) {
                 int     i = filename.IndexOf('\\', 2);
                 if (i > 0) {
                     i = filename.IndexOf('\\', i + 1);

@@ -108,7 +108,7 @@ namespace Jannesen.VisualStudioExtension.NBuildProject.Build
                             foreach(string name in reader.GetAttibutes()) {
                                 string value = _expandValue(reader.GetValueString(name));
 
-                                if (name.StartsWith("env.")) {
+                                if (name.StartsWith("env.", StringComparison.InvariantCulture)) {
                                     _startInfo.EnvironmentVariables[name.Substring(4)] = value;
                                 }
                                 else {
@@ -140,7 +140,7 @@ namespace Jannesen.VisualStudioExtension.NBuildProject.Build
 
             }
             catch(Exception err) {
-                throw new ConfigException("Loading configuration from " + configname + " failed" + (reader != null ? " at line "+reader.LineNumber.ToString()+ "." : "."), err);
+                throw new ConfigException("Loading configuration from " + configname + " failed" + (reader != null ? " at line "+reader.LineNumber.ToString(System.Globalization.CultureInfo.InvariantCulture)+ "." : "."), err);
             }
             finally {
                 if (reader != null)
@@ -199,7 +199,7 @@ namespace Jannesen.VisualStudioExtension.NBuildProject.Build
             int         start = 0;
             int         i;
 
-            while ((i = value.IndexOf("$(", start)) >= 0) {
+            while ((i = value.IndexOf("$(", start, StringComparison.InvariantCulture)) >= 0) {
                 int     e = value.IndexOf(')', i+2);
                 if (e < 0)
                     break;
@@ -231,7 +231,7 @@ namespace Jannesen.VisualStudioExtension.NBuildProject.Build
                 throw new BuildException("Unknown variable '" + name + "'.");
             }
         }
-        private     async       Task<Exception>                     _copyStreamLinesToQueue(StreamReader stream, BlockingCollection<string> queue)
+        private static async    Task<Exception>                     _copyStreamLinesToQueue(StreamReader stream, BlockingCollection<string> queue)
         {
             try {
                 string  line;
@@ -276,10 +276,10 @@ namespace Jannesen.VisualStudioExtension.NBuildProject.Build
                                 BuildEngine.LogWarningEvent(new BuildWarningEventArgs(logFilter.Subcategory,
                                                                                       code,
                                                                                       file,
-                                                                                      (!String.IsNullOrEmpty(lineno)    ? int.Parse(lineno)    : 0),
-                                                                                      (!String.IsNullOrEmpty(colno)     ? int.Parse(colno)     : 0),
-                                                                                      (!String.IsNullOrEmpty(endlineno) ? int.Parse(endlineno) : 0),
-                                                                                      (!String.IsNullOrEmpty(endcolno)  ? int.Parse(endcolno)  : 0),
+                                                                                      (!String.IsNullOrEmpty(lineno)    ? int.Parse(lineno, System.Globalization.CultureInfo.InvariantCulture)    : 0),
+                                                                                      (!String.IsNullOrEmpty(colno)     ? int.Parse(colno, System.Globalization.CultureInfo.InvariantCulture)     : 0),
+                                                                                      (!String.IsNullOrEmpty(endlineno) ? int.Parse(endlineno, System.Globalization.CultureInfo.InvariantCulture) : 0),
+                                                                                      (!String.IsNullOrEmpty(endcolno)  ? int.Parse(endcolno, System.Globalization.CultureInfo.InvariantCulture)  : 0),
                                                                                       msg,
                                                                                       "",
                                                                                       ""));
@@ -289,10 +289,10 @@ namespace Jannesen.VisualStudioExtension.NBuildProject.Build
                                 BuildEngine.LogErrorEvent(new BuildErrorEventArgs(logFilter.Subcategory,
                                                                                   code,
                                                                                   file,
-                                                                                  (!String.IsNullOrEmpty(lineno)    ? int.Parse(lineno)    : 0),
-                                                                                  (!String.IsNullOrEmpty(colno)     ? int.Parse(colno)     : 0),
-                                                                                  (!String.IsNullOrEmpty(endlineno) ? int.Parse(endlineno) : 0),
-                                                                                  (!String.IsNullOrEmpty(endcolno)  ? int.Parse(endcolno)  : 0),
+                                                                                  (!String.IsNullOrEmpty(lineno)    ? int.Parse(lineno, System.Globalization.CultureInfo.InvariantCulture)    : 0),
+                                                                                  (!String.IsNullOrEmpty(colno)     ? int.Parse(colno, System.Globalization.CultureInfo.InvariantCulture)     : 0),
+                                                                                  (!String.IsNullOrEmpty(endlineno) ? int.Parse(endlineno, System.Globalization.CultureInfo.InvariantCulture) : 0),
+                                                                                  (!String.IsNullOrEmpty(endcolno)  ? int.Parse(endcolno, System.Globalization.CultureInfo.InvariantCulture)  : 0),
                                                                                   msg,
                                                                                   "",
                                                                                   ""));
