@@ -35,9 +35,6 @@
     <CreateVsixContainer>True</CreateVsixContainer>
     <CopyVsixExtensionFiles>True</CopyVsixExtensionFiles>
     <CopyVsixExtensionLocation>..\VisualStudioExtensions\.vsix</CopyVsixExtensionLocation>
-    <TargetFrameworkProfile />
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -54,7 +51,6 @@
     <Optimize>true</Optimize>
     <DefineConstants>TRACE</DefineConstants>
     <DeployExtension>False</DeployExtension>
-    <RunCodeAnalysis>false</RunCodeAnalysis>
     <OutputPath>bin\</OutputPath>
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
@@ -131,12 +127,12 @@
       <SubType>Designer</SubType>
       <ManifestResourceName>VSPackage</ManifestResourceName>
     </EmbeddedResource>
-    <None Include="packages.config" />
-    <None Include="PostBuild.cmd" />
-    <None Include="source.extension.vsixmanifest" />
     <Content Include="NBuildProject.ico">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
+    <None Include="packages.config" />
+    <None Include="PostBuild.cmd" />
+    <None Include="source.extension.vsixmanifest" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.2.9.4\analyzers\dotnet\cs\Microsoft.CodeAnalysis.VersionCheckAnalyzer.resources.dll" />
