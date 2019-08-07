@@ -16,10 +16,10 @@ namespace Jannesen.VisualStudioExtension.NBuildProject.Build
 
         class LogFilter
         {
-            private             Regex                   _regex;
-            private             MessageImportance       _importance;
-            private             bool                    _warning;
-            private             string                  _subcategory;
+            private readonly    Regex                   _regex;
+            private readonly    MessageImportance       _importance;
+            private readonly    bool                    _warning;
+            private readonly    string                  _subcategory;
 
             public              Regex                   Regex
             {

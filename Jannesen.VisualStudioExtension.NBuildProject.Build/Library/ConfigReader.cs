@@ -7,9 +7,9 @@ namespace Jannesen.VisualStudioExtension.NBuildProject.Build.Library
 {
     public sealed class ConfigReader: IDisposable
     {
-        private     XmlTextReader                   _xmlReader;
+        private readonly    XmlTextReader                   _xmlReader;
 
-        public      bool                            hasChildren
+        public              bool                            hasChildren
         {
             get {
                 if (_xmlReader.NodeType != XmlNodeType.Element)
@@ -18,13 +18,13 @@ namespace Jannesen.VisualStudioExtension.NBuildProject.Build.Library
                 return !_xmlReader.IsEmptyElement;
             }
         }
-        public      string                          ElementName
+        public              string                          ElementName
         {
             get {
                 return _xmlReader.Name;
             }
         }
-        public      int                             LineNumber
+        public              int                             LineNumber
         {
             get {
                 return _xmlReader.LineNumber;
@@ -37,12 +37,12 @@ namespace Jannesen.VisualStudioExtension.NBuildProject.Build.Library
             _xmlReader  = new XmlTextReader(fileName);
 #pragma warning restore CA3075 // Insecure DTD processing in XML
         }
-        public      void                            Dispose()
+        public              void                            Dispose()
         {
             _xmlReader.Dispose();
         }
 
-        public      void                            ReadRootNode(string rootElementName)
+        public              void                            ReadRootNode(string rootElementName)
         {
             do {
                 if (!_xmlReader.Read())
@@ -53,7 +53,7 @@ namespace Jannesen.VisualStudioExtension.NBuildProject.Build.Library
             if (_xmlReader.Name != rootElementName)
                 throw new ConfigException("Invalid root name.");
         }
-        public      bool                            ReadNextElement()
+        public              bool                            ReadNextElement()
         {
             for(;;) {
                 if (!_xmlReader.Read())
@@ -68,7 +68,7 @@ namespace Jannesen.VisualStudioExtension.NBuildProject.Build.Library
                 }
             }
         }
-        public      void                            NoChildElements()
+        public              void                            NoChildElements()
         {
             if (!_xmlReader.IsEmptyElement) {
                 if (ReadNextElement())
@@ -76,7 +76,7 @@ namespace Jannesen.VisualStudioExtension.NBuildProject.Build.Library
             }
         }
 
-        public      string[]                        GetAttibutes()
+        public              string[]                        GetAttibutes()
         {
             List<string>        rtn = new List<string>();
 
@@ -91,7 +91,7 @@ namespace Jannesen.VisualStudioExtension.NBuildProject.Build.Library
 
             return rtn.ToArray();
         }
-        public      string                          GetValueString(string name)
+        public              string                          GetValueString(string name)
         {
             string      value = _xmlReader.GetAttribute(name);
 
@@ -100,7 +100,7 @@ namespace Jannesen.VisualStudioExtension.NBuildProject.Build.Library
 
             return value;
         }
-        public      string                          GetValueString(string name, string defaultValue)
+        public              string                          GetValueString(string name, string defaultValue)
         {
             string      value = _xmlReader.GetAttribute(name);
 
@@ -109,7 +109,7 @@ namespace Jannesen.VisualStudioExtension.NBuildProject.Build.Library
 
             return value;
         }
-        public      bool                            GetValueBool(string name, bool defaultValue)
+        public              bool                            GetValueBool(string name, bool defaultValue)
         {
             string      value = _xmlReader.GetAttribute(name);
 
@@ -129,7 +129,7 @@ namespace Jannesen.VisualStudioExtension.NBuildProject.Build.Library
                 throw new ConfigException("Invalid boolean value in attribute '" + name + "'.");
             }
         }
-        public      Int64                           GetValueInt64(string name)
+        public              Int64                           GetValueInt64(string name)
         {
             string      value = GetValueString(name);
 
@@ -140,7 +140,7 @@ namespace Jannesen.VisualStudioExtension.NBuildProject.Build.Library
                 throw new ConfigException("Invalid integer value in attribute '" + name + "'.");
             }
         }
-        public      DateTime                        GetValueDateTime(string name)
+        public              DateTime                        GetValueDateTime(string name)
         {
             string      value = GetValueString(name);
 
@@ -151,7 +151,7 @@ namespace Jannesen.VisualStudioExtension.NBuildProject.Build.Library
                 throw new ConfigException("Invalid integer value in attribute '" + name + "'.");
             }
         }
-        public      T                               GetValueEnum<T>(string name) where T: struct
+        public              T                               GetValueEnum<T>(string name) where T: struct
         {
             string      value = _xmlReader.GetAttribute(name);
 
@@ -169,7 +169,7 @@ namespace Jannesen.VisualStudioExtension.NBuildProject.Build.Library
 
             return result;
         }
-        public      T                               GetValueEnum<T>(string name, T defaultValue) where T: struct
+        public              T                               GetValueEnum<T>(string name, T defaultValue) where T: struct
         {
             string      value = _xmlReader.GetAttribute(name);
 
