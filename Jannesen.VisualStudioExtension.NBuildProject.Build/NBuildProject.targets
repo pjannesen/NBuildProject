@@ -6,9 +6,9 @@
 		<ProjectCapability Include="ProjectConfigurationsInferredFromUsage" />
 		<ProjectCapability Include="DeclaredSourceItems" />
 		<ProjectCapability Include="UseFileGlobs" />
-		<ProjectCapability Include="DependenciesTree;ProjectReferences;ReferenceManagerProjects" />
+		<ProjectCapability Include="ReferencesFolder;ProjectReferences;ReferenceManagerProjects;ReferenceManagerBrowse" />
 		<ProjectCapability Include="NBuildProject" />
-	</ItemGroup>
+  </ItemGroup>
 
 	<ItemGroup>
 		<PropertyPageSchema Include="$(MSBuildThisFileDirectory)Rules\ProjectItemsSchema.xaml"/>
@@ -79,7 +79,7 @@
 				      Args="buildjsfile.js /Configuration=$(Configuration)"
 		/>
 	</Target>
-
+  
 	<Target Name="ResolveProjectReferencesDesignTime" DependsOnTargets="ResolveProjectReferences" Returns="@(_ResolvedProjectReferences)" />
 	<Target Name="ResolveProjectReferences" Returns="@(_ResolvedProjectReferences)">
 			<ResolveProjectReferences ProjectReferences="@(ProjectReference)"

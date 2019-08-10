@@ -12,19 +12,19 @@ namespace Jannesen.VisualStudioExtension.NBuildProject.Build
 {
     public class ResolveProjectReferences: Task
     {
-        public              ITaskItem[]                 ProjectReferences               { get; set; }
-        public              string                      ProjectDirectory                { get; set; }
-        public              string                      ProjectConfiguration            { get; set; }
-        public              string                      ProjectPlatform                 { get; set; }
-        public              bool                        Build                           { get; set; }
+        public                  ITaskItem[]             ProjectReferences               { get; set; }
+        public                  string                  ProjectDirectory                { get; set; }
+        public                  string                  ProjectConfiguration            { get; set; }
+        public                  string                  ProjectPlatform                 { get; set; }
+        public                  bool                    Build                           { get; set; }
         [Output]
-        public              ITaskItem[]                 ResolvedProjectReferences       { get; set; }
+        public                  ITaskItem[]             ResolvedProjectReferences       { get; set; }
 
-        public override bool Execute()
+        public override bool    Execute()
         {
-            if (ProjectDirectory == null)       throw new ArgumentException("ProjectDirectory not set.");
-            if (ProjectConfiguration == null)   throw new ArgumentException("ProjectConfiguration not set.");
-            if (ProjectPlatform == null)        throw new ArgumentException("ProjectPlatform not set.");
+            if (ProjectDirectory is null)       throw new ArgumentException("ProjectDirectory not set.");
+            if (ProjectConfiguration is null)   throw new ArgumentException("ProjectConfiguration not set.");
+            if (ProjectPlatform is null)        throw new ArgumentException("ProjectPlatform not set.");
 
             try {
                 if (ProjectReferences != null) {
@@ -58,7 +58,7 @@ namespace Jannesen.VisualStudioExtension.NBuildProject.Build
             }
         }
 
-        private         ITaskItem           _processProjectReference(ITaskItem projectReference)
+        private                 ITaskItem               _processProjectReference(ITaskItem projectReference)
         {
             var projectFullPath = Statics.NormelizeFullPath(Path.Combine(ProjectDirectory, projectReference.ItemSpec));
             if (!File.Exists(projectFullPath))
@@ -69,8 +69,8 @@ namespace Jannesen.VisualStudioExtension.NBuildProject.Build
             var loadedProjects = ProjectCollection.GlobalProjectCollection.GetLoadedProjects(projectFullPath);
             if (loadedProjects.Count > 0) {
                 foreach (var loaded in loadedProjects) {
-                    loaded.GlobalProperties.TryGetValue("Configuration", out string configuration);
-                    loaded.GlobalProperties.TryGetValue("Platform",      out string platform);
+                    loaded.GlobalProperties.TryGetValue("Configuration", out var configuration);
+                    loaded.GlobalProperties.TryGetValue("Platform",      out var platform);
 
                     if (configuration == ProjectConfiguration && platform == ProjectPlatform)
                         project = loaded;
@@ -80,30 +80,41 @@ namespace Jannesen.VisualStudioExtension.NBuildProject.Build
                     throw new Exception("Can't locate project '" + projectFullPath + "' with active Configuration.");
             }
             else {
-                var globalProperties = new Dictionary<string,string>
-                                                {
-                                                    { "Configuration", ProjectConfiguration },
-                                                    { "Platform", ProjectPlatform }
-                                                };
-                project = new Project(projectFullPath, globalProperties, null);
+                project = new Project(projectFullPath,
+                                      new Dictionary<string,string>() {
+                                          { "Configuration", ProjectConfiguration },
+                                          { "Platform",      ProjectPlatform }
+                                      }, null);
             }
 
-            var resolvedItem = new TaskItem(projectReference.ItemSpec);
             var propertyValue = new Dictionary<string, string>();
             string value;
 
             foreach(var pp in project.AllEvaluatedProperties)
                 propertyValue[pp.Name] = propertyValue.TryGetValue(pp.Name, out value) ? value+";"+pp.EvaluatedValue : pp.EvaluatedValue;
 
+            var resolvedItem = new TaskItem(projectFullPath);
+            resolvedItem.SetMetadata("OriginalItemSpec", projectReference.ItemSpec);
+
             if (propertyValue.TryGetValue("ProjectGuid", out value))
                 resolvedItem.SetMetadata("Project", value);
+
+            string name = null;
 
             if (propertyValue.TryGetValue("OutputType", out value) && value == "Library") {
                 if (propertyValue.TryGetValue("TargetPath", out value)) {
                     resolvedItem.SetMetadata("ProjectType",    "Assembly");
                     resolvedItem.SetMetadata("OutputAssembly", Statics.NormelizeFullPath(Path.Combine(Path.GetDirectoryName(projectFullPath), value)));
+
+                    propertyValue.TryGetValue("AssemblyName", out name);
                 }
             }
+
+            if (name is null) {
+                name = Path.GetFileNameWithoutExtension(projectFullPath);
+            }
+
+            resolvedItem.SetMetadata("Name", name);
 
             return resolvedItem;
         }

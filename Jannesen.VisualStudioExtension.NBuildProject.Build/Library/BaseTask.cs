@@ -61,8 +61,8 @@ namespace Jannesen.VisualStudioExtension.NBuildProject.Build.Library
         }
         protected   static      string                              FullFileName(string root, string filename)
         {
-            if (root == null) throw new ArgumentNullException(nameof(root));
-            if (filename == null) throw new ArgumentNullException(nameof(filename));
+            if (root is null) throw new ArgumentNullException(nameof(root));
+            if (filename is null) throw new ArgumentNullException(nameof(filename));
 
             filename = Path.Combine(root, filename.Replace("/", "\\"));
 

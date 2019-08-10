@@ -18,11 +18,6 @@
             <DataSource Persistence="ProjectFile" ItemType="ProjectReference" HasConfigurationCondition="False" SourceOfDefaultValue="AfterContext" />
         </StringProperty.DataSource>
     </StringProperty>
-    <StringProperty Name="ResolvedPath"  ReadOnly="True"  DisplayName="Path"            Description="Location of the file being referenced.">
-        <StringProperty.DataSource>
-            <DataSource PersistedName="Identity"     SourceOfDefaultValue="AfterContext" />
-        </StringProperty.DataSource>
-    </StringProperty>
     <StringProperty Name="ProjectType"   ReadOnly="True"  DisplayName="Project Type"    Description="The project type."/>
     <StringProperty Name="OutputAssembly" ReadOnly="True" DisplayName="Output assembly" Description="Output assemble."/>
 
