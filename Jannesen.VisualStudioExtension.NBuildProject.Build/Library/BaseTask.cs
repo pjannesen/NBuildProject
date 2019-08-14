@@ -66,7 +66,7 @@ namespace Jannesen.VisualStudioExtension.NBuildProject.Build.Library
 
             filename = Path.Combine(root, filename.Replace("/", "\\"));
 
-            if (filename.IndexOf("\\.", StringComparison.InvariantCulture) < 0)
+            if (filename.IndexOf("\\.", StringComparison.Ordinal) < 0)
                 return filename;
 
             int         rootindex = _getRootIndex(filename);
@@ -146,7 +146,7 @@ namespace Jannesen.VisualStudioExtension.NBuildProject.Build.Library
             if (filename.Length > 2 && filename[1] == ':'  && filename[2] == '\\')
                 return 3;
 
-            if (filename.StartsWith("\\", StringComparison.InvariantCulture)) {
+            if (filename.StartsWith("\\", StringComparison.Ordinal)) {
                 int     i = filename.IndexOf('\\', 2);
                 if (i > 0) {
                     i = filename.IndexOf('\\', i + 1);

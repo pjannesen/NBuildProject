@@ -108,7 +108,7 @@ namespace Jannesen.VisualStudioExtension.NBuildProject.Build
                             foreach(string name in reader.GetAttibutes()) {
                                 string value = _expandValue(reader.GetValueString(name));
 
-                                if (name.StartsWith("env.", StringComparison.InvariantCulture)) {
+                                if (name.StartsWith("env.", StringComparison.Ordinal)) {
                                     _startInfo.EnvironmentVariables[name.Substring(4)] = value;
                                 }
                                 else {
@@ -163,8 +163,7 @@ namespace Jannesen.VisualStudioExtension.NBuildProject.Build
                 process.Start();
                 process.StandardInput.Close();
 
-                using (BlockingCollection<string> queue = new BlockingCollection<string>())
-                {
+                using (BlockingCollection<string> queue = new BlockingCollection<string>()) {
                     string      line;
 
                     Task<Exception> asyncReaderOutput = _copyStreamLinesToQueue(process.StandardOutput, queue);
@@ -199,7 +198,7 @@ namespace Jannesen.VisualStudioExtension.NBuildProject.Build
             int         start = 0;
             int         i;
 
-            while ((i = value.IndexOf("$(", start, StringComparison.InvariantCulture)) >= 0) {
+            while ((i = value.IndexOf("$(", start, StringComparison.Ordinal)) >= 0) {
                 int     e = value.IndexOf(')', i+2);
                 if (e < 0)
                     break;
