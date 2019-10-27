@@ -83,10 +83,8 @@
 	<Target Name="ResolveProjectReferencesDesignTime" DependsOnTargets="ResolveProjectReferences" Returns="@(_ResolvedProjectReferences)" />
 	<Target Name="ResolveProjectReferences" Returns="@(_ResolvedProjectReferences)">
 			<ResolveProjectReferences ProjectReferences="@(ProjectReference)"
-								  ProjectDirectory="$(MSBuildProjectDirectory)"
-								  ProjectConfiguration="$(Configuration)"
-								  ProjectPlatform="$(Platform)"
-								  Build="false">
+								      ProjectDirectory="$(MSBuildProjectDirectory)"
+								      Build="false">
 			<Output TaskParameter="ResolvedProjectReferences" ItemName="_ResolvedProjectReferences"/>
 		</ResolveProjectReferences>
 	</Target>
