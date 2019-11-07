@@ -16,10 +16,10 @@
 
 	<Import Project="$(NBuildProjectBuild)NBuildProject.targets" />
 
-	<Target Name="Cleanup" DependsOnTargets="JLClean" />
+	<Target Name="Clean"   DependsOnTargets="JLClean" />
 	<Target Name="Build"   DependsOnTargets="JLBuild" />
 	<Target Name="Rebuild" DependsOnTargets="JLSetRebuild">
-		<CallTarget Targets="Cleanup" />
+		<CallTarget Targets="Clean" />
 		<CallTarget Targets="Build" />
 	</Target>	
 </Project>
