@@ -16,9 +16,9 @@
 
 	<Import Project="$(NBuildProjectBuild)NBuildProject.targets" />
 
-	<Target Name="Clean"   DependsOnTargets="JLClean" />
-	<Target Name="Build"   DependsOnTargets="JLBuild" />
-	<Target Name="Rebuild" DependsOnTargets="JLSetRebuild">
+	<Target Name="Clean"   DependsOnTargets="$(CommonClean)" />
+	<Target Name="Build"   DependsOnTargets="$(CommonBuild)" />
+	<Target Name="Rebuild" DependsOnTargets="$(CommonRebuild)">
 		<CallTarget Targets="Clean" />
 		<CallTarget Targets="Build" />
 	</Target>	

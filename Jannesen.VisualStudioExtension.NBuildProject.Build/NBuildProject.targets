@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Import Project="Common.targets" />
 	<Import Project="$(MSBuildProjectFullPath).user" Condition="Exists('$(MSBuildProjectFullPath).user')"/>
 
 	<ItemGroup>
@@ -80,8 +81,7 @@
 		/>
 	</Target>
   
-	<Target Name="ResolveProjectReferencesDesignTime" DependsOnTargets="ResolveProjectReferences" Returns="@(_ResolvedProjectReferences)" />
-	<Target Name="ResolveProjectReferences" Returns="@(_ResolvedProjectReferences)">
+	<Target Name="ResolveProjectReferencesDesignTime" Returns="@(_ResolvedProjectReferences)">
 			<ResolveProjectReferences ProjectReferences="@(ProjectReference)"
 								      ProjectDirectory="$(MSBuildProjectDirectory)"
 								      Build="false">

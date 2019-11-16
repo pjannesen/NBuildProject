@@ -60,6 +60,9 @@
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="ProcessBuild.cs" />
     <Compile Include="ResolveProjectReferences.cs" />
+    <None Include="Common.targets">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="NBuildProject.props">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
