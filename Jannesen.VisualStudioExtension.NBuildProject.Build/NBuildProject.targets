@@ -88,4 +88,16 @@
 			<Output TaskParameter="ResolvedProjectReferences" ItemName="_ResolvedProjectReferences"/>
 		</ResolveProjectReferences>
 	</Target>
+
+    <Target Name="Restore">
+    </Target>
+
+    <Target Name="_IsProjectRestoreSupported"
+		    Returns="@(_ValidProjectsForRestore)">
+
+        <ItemGroup>
+            <_ValidProjectsForRestore Include="$(MSBuildProjectFullPath)" />
+        </ItemGroup>
+    </Target>
+
 </Project>
